@@ -1,7 +1,8 @@
 <?php
-    $dsn = 'mysql:host=sql2.njit.edu;dbname=ia238';
-    $username = 'ia238';
-    $password = 'qMSAi5hus';
+    $secrets = fopen(".secrets", "r");
+    $username = rtrim(fgets($secrets));
+    $password = rtrim(fgets($secrets));
+    $dsn = rtrim(fgets($secrets));
 
     try {
         $db = new PDO($dsn, $username, $password);
